@@ -1,0 +1,16 @@
+//Sorting fields by pub_date
+GET /books/book/_search
+{
+    "from": 0, "size": 30,
+    "_source": [
+       "title","author","price","pub_date","isbn"
+    ], 
+    "query": {"match_all": {}},
+    "sort": [
+       {
+          "pub_date": {
+             "order": "desc"
+          }
+       }
+    ]
+}
