@@ -14,3 +14,21 @@ GET /books/book/_search
        }
     ]
 }
+
+//Geo distance sorting
+GET /books/store/_search
+{
+    "query": {
+        "bool": { 
+            "filter": {
+                "geo_distance": {
+                   "distance": "10000km",
+                   "pin.location": {
+                      "lat": 25.75,
+                      "lon": -80.26
+                   }
+                }
+            }
+        }
+    }
+}
